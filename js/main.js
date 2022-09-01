@@ -1,5 +1,3 @@
-const countrySelectElement = document.querySelector(".country_option");
-
 function displayChart() {
   const labels = ["January", "February", "March", "April", "May", "June"];
 
@@ -52,10 +50,29 @@ function getCountries() {
       console.log("dict", countrysDict);
       const countryNames = Object.keys(countrysDict);
       console.log("paises", countryNames);
-      const oneCountryName = countryNames[9];
+      //Un Pais Elegido
+      const oneCountryName = countryNames[53];
 
       const countryData = countrysDict[oneCountryName];
       console.log("countryData", oneCountryName, ":", countryData);
+
+      //Select recibe info de oneCountryName
+      const select = document.createElement("select");
+      const option = document.createElement("option");
+      option.setAttribute("value", oneCountryName);
+      option.innerHTML = oneCountryName;
+      const countrySelectElement = document.getElementById("country-option");
+      countrySelectElement.appendChild(option);
+      // ingreso Pais individual al select
+      const option2 = document.createElement("option");
+      option2.setAttribute("value", oneCountryName);
+      option2.innerHTML = countryNames[9];
+      countrySelectElement.appendChild(option2);
+      // ingreso Pais individual al select
+      const option3 = document.createElement("option");
+      option3.setAttribute("value", oneCountryName);
+      option3.innerHTML = countryNames[117];
+      countrySelectElement.appendChild(option3);
 
       // console.log("2do then", response);
       // console.log("2do then", response.rawData[49].Country_Region);
