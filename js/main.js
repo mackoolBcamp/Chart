@@ -1,4 +1,5 @@
 const countrySelectElement = document.querySelector(".country_option");
+const citiesSelect = document.getElementById("allCities")
 
 function displayChart() {
   const labels = ["January", "February", "March", "April", "May", "June"];
@@ -25,50 +26,39 @@ function displayChart() {
 }
 displayChart();
 
-const countrysDict = {};
+function getCovidData() { }
 
-function getCovidData() {}
 
-function getCountries() {
-  const endpoint = "https://coronavirus.m.pipedream.net";
-  fetch(endpoint)
+
+async function apiCall() {
+  axios
+    .get("https://coronavirus.m.pipedream.net")
     .then((response) => {
-      return response.json();
-      const json = response.json();
-      console.log("object", Object.keys(json));
-      console.log("json", json);
-    })
-    .then((response) => {
-      const { rawData } = response;
-
-      for (let item of rawData) {
-        const { Country_Region } = item;
-        if (!countrysDict[Country_Region]) {
-          countrysDict[Country_Region] = [];
-        }
-        countrysDict[Country_Region].push(item);
+      const citiesArray = []
+      for (let index = 0; index < response.data.rawData.length; index++) {
+        citiesArray.push(response.data.rawData[index].Country_Region)
       }
-
-      console.log("dict", countrysDict);
-      const countryNames = Object.keys(countrysDict);
-      console.log("paises", countryNames);
-      const oneCountryName = countryNames[9];
-
-      const countryData = countrysDict[oneCountryName];
-      console.log("countryData", oneCountryName, ":", countryData);
-
-      // console.log("2do then", response);
-      // console.log("2do then", response.rawData[49].Country_Region);
+      let result = citiesArray.filter((item,index)=>{
+        return citiesArray.indexOf(item) === index;
+      })
+      console.log(result);
+      result.forEach(element => {
+        citiesSelect.innerHTML += `<select id="allCities" class="country">
+        <option value="${element}">${element}</option>
+        </select>`
+      });
+      const setData = () => {
+        const index = response.data.rawData.map(element=> {
+          if (element.Country_Region== citiesSelect.value) {
+            console.log(element)
+          }
+        })
+        console.log(citiesSelect.value)
+      }
+      document.getElementById("btn").addEventListener("click",setData)
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("Not resolved"));
+  // .finally(() => console.log("Resolved anyway"));
 }
-getCountries();
+apiCall()
 
-// async function apiCall() {
-//   axios
-//     .get("https://coronavirus.m.pipedream.net")
-//     .then((response) => console.log(response.data.rawData[49].Country_Region))
-//     .catch((err) => console.log("Not resolved"));
-//   // .finally(() => console.log("Resolved anyway"));
-// }
-// apiCall();
