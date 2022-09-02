@@ -24,18 +24,10 @@ async function apiCall() {
         <option value="${element}">${element}</option>
         </select>`
       });
-      const setData = () => {
-        response.data.rawData.map(element => {
-          if (element.Country_Region == citiesSelect.value) {
-            const index = response.data.rawData.indexOf(element)
-          }
-        })
-        console.log(citiesSelect.value)
-      }
-      document.getElementById("btn").addEventListener("click", setData)
+      let index = 0
+
       function displayChart() {
         const labels = ["Recovered", "Deaths",];
-
         const data = {
           labels: labels,
           datasets: [
@@ -43,7 +35,7 @@ async function apiCall() {
               label: "Casos diarios",
               backgroundColor: "rgb(10, 70, 126)",
               borderColor: "rgb(255, 99, 132)",
-              data: [40, 20],
+              data: [10, 20],
             },
           ],
         };
@@ -55,8 +47,24 @@ async function apiCall() {
         };
         const myChart = new Chart(document.getElementById("myChart"), config);
         console.log("se ejecuto funcion");
+        const setData = () => {
+          response.data.rawData.map(element => {
+            if (element.Country_Region == citiesSelect.value) {
+               index = response.data.rawData.indexOf(element)
+            }
+          })
+          console.log(index)
+          console.log(citiesSelect.value)
+          myChart.data.datasets[0].data[0]=0
+          console.log(myChart.data.datasets[0].data[0])
+        }
+        document.getElementById("btn").addEventListener("click", setData)
+
+        console.log(myChart.data.datasets[0].data[0])
+
       }
       displayChart();
+
     })
     .catch((err) => console.log("Not resolved"));
   // .finally(() => console.log("Resolved anyway"));
