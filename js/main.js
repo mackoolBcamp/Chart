@@ -57,6 +57,11 @@ async function apiCall() {
           console.log("Casos recuperados: ",myChart.data.datasets[0].data[0])
           console.log("Muertes: ",myChart.data.datasets[0].data[1])
           myChart.update()
+          document.getElementById("chartInfo").innerHTML=`
+          <span>Sample City: ${response.data.rawData[index].Combined_Key}</span>
+          <br/>
+          <span>Last Update: ${response.data.rawData[index].Last_Update}</span>
+          `
         }
         document.getElementById("btn").addEventListener("click", setData)
       }
