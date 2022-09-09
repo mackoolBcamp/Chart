@@ -35,46 +35,6 @@
       >
         <i class="fas fa-bars"></i>
       </button>
-      <!-- Navbar Search-->
-      <!-- <form
-        class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
-      >
-        <div class="input-group">
-          <input
-            class="form-control"
-            type="text"
-            placeholder="Search for..."
-            aria-label="Search for..."
-            aria-describedby="btnNavbarSearch"
-          />
-          <button class="btn btn-primary" id="btnNavbarSearch" type="button">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </form> -->
-      <!-- Navbar-->
-      <!-- <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            id="navbarDropdown"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            ><i class="fas fa-user fa-fw"></i
-          ></a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdown"
-          >
-            <li><a class="dropdown-item" href="#!">Settings</a></li>
-            <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-            <li><hr class="dropdown-divider" /></li>
-            <li><a class="dropdown-item" href="#!">Logout</a></li>
-          </ul>
-        </li>
-      </ul> -->
     </nav>
     <div id="layoutSidenav">
       <div id="layoutSidenav_nav">
@@ -201,16 +161,6 @@
                 </nav>
               </div>
               <div class="sb-sidenav-menu-heading">Addons</div>
-              <!-- <a class="nav-link" href="charts.html">
-                <div class="sb-nav-link-icon">
-                  <i class="fas fa-chart-area"></i>
-                </div>
-                Charts
-              </a>
-              <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Tables
-              </a> -->
             </div>
           </div>
           <div class="sb-sidenav-footer">
@@ -229,9 +179,25 @@
             </ol>
             <!-- info colores -->
             <div class="row">
-              <!-- ULTIMA ACTUALIZACION -->
+              <!-- CIUDAD -->
               <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
+                  <div class="card-body">Ciudad/País</div>
+                  <div
+                    class="card-footer d-flex align-items-center justify-content-between"
+                  >
+                    <a class="small text-white stretched-link" id="chartInfo"
+                      >Details</a
+                    >
+                    <div class="small text-white">
+                      <i class="fa-sharp fa-solid fa-city"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ULTIMA ACTUALIZACION -->
+              <div class="col-xl-3 col-md-6">
+                <div class="card bg-dark text-white mb-4">
                   <div class="card-body">Ultima Actualización</div>
                   <div
                     class="card-footer d-flex align-items-center justify-content-between"
@@ -247,7 +213,7 @@
               </div>
               <!-- MUERTES -->
               <div class="col-xl-3 col-md-6">
-                <div class="card bg-warning text-white mb-4">
+                <div class="card bg-danger text-white mb-4">
                   <div class="card-body">Muertes</div>
                   <div
                     class="card-footer d-flex align-items-center justify-content-between"
@@ -261,25 +227,9 @@
                   </div>
                 </div>
               </div>
-              <!-- CIUDAD -->
-              <div class="col-xl-3 col-md-6">
-                <div class="card bg-success text-white mb-4">
-                  <div class="card-body">Ciudad/País</div>
-                  <div
-                    class="card-footer d-flex align-items-center justify-content-between"
-                  >
-                    <a class="small text-white stretched-link" id="chartInfo"
-                      >Details</a
-                    >
-                    <div class="small text-white">
-                      <i class="fa-sharp fa-solid fa-city"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
               <!-- RECUPERADOS -->
               <div class="col-xl-3 col-md-6">
-                <div class="card bg-danger text-white mb-4">
+                <div class="card bg-success text-white mb-4">
                   <div class="card-body">Recuperados</div>
                   <div
                     class="card-footer d-flex align-items-center justify-content-between"
@@ -310,17 +260,6 @@
                   </div>
                 </div>
               </div>
-              <!-- <div class="col-xl-6">
-                <div class="card mb-4">
-                  <div class="card-header">
-                    <i class="fas fa-chart-bar me-1"></i>
-                    Bar Chart Example
-                  </div>
-                  <div class="card-body">
-                    <canvas id="myBarChart" width="100%" height="40"></canvas>
-                  </div>
-                </div>
-              </div> -->
             </div>
             <div class="card mb-4">
               <div class="card-header">

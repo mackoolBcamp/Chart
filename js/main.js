@@ -30,7 +30,7 @@ async function apiCall() {
           datasets: [
             {
               label: "Casos diarios",
-              backgroundColor: ["#DC002D", "#30FF54"],
+              backgroundColor: ["#30FF54", "#DC002D"],
               borderColor: "rgb(255, 99, 132)",
               data: [10, 20],
             },
